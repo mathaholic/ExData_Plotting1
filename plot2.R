@@ -13,6 +13,7 @@ library("lubridate")
 
 power_consumption$Date <- strptime(paste(power_consumption$Date,power_consumption$Time), "%d/%m/%Y %H:%M:%S")
 
+png(file = "plog2.png")
 
 ##make the plot
 plot(Global_active_power ~ Time, power_consumption, xlab = "", ylab = "Global Active Power (kilowatts)", xaxt = "n", type = "l")
@@ -22,7 +23,7 @@ axis(1, at = c(0,720,1440), labels = c("Thurs", "Fri", "Sat"))
 
 
 ##create the png file.  I didn't resize to 480x480 pixels becase png's default to that size
-dev.copy(png,file="plot2.png")
+##dev.copy(png,file="plot2.png")
 
 ##close the connection!
 dev.off()
